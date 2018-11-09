@@ -1,0 +1,404 @@
+
+<form class="form-horizontal">
+
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="control-group">
+			    <label class="control-label">Cotización</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cotizacion"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+		  <div class="control-group">
+			    <label class="control-label">Cliente</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cliente"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor presupuestado (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorPresupuesto"
+				             readonly="true" 
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor/Hora (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorHora"
+				             ng-model="ngValorHora"				             
+				             readonly="true" 
+				             class="form-control" />
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	    
+	</div>
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Análisis de la marca, relevamiento, dinámicas, conceptualización del público y mercado.
+		</strong>	  
+	</h4>	
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_INICIO"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_FIN"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened2" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open2($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input type="number" 
+				             ng-model="horasAnalisis"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>
+			
+	</div>
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Desarrollo del concepto.
+		</strong>	  
+	</h4>
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_INICIO_DES_CONCEPTO"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened3" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open3($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_FIN_DES_CONCEPTO"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened4" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open4($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input type="number" 
+				             ng-model="horasDesConcepto"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>
+	</div>
+	
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Desarrollo de propuesta.
+		</strong>	  
+	</h4>
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_INICIO_DES_PROPUESTA"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened5" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open5($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_FIN_DES_PROPUESTA"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened6" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open6($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input type="number" 
+				             ng-model="horasDesPropuesta"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>
+	</div>
+	
+	
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Ajuste del interiorismo.
+		</strong>	  
+	</h4>
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_INICIO_INTERIORISMO"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened7" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open7($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input type="text"
+				       cam-variable-name="FECHA_FIN_INTERIORISMO"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="dd-MM-yyyy"
+				       is-open="dateFieldOpened8" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open8($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input type="number" 
+				             ng-model="horasAjInteriorismo"
+				             class="form-control" />				       
+				    </div>
+			  	</div>
+	  	</div>
+	</div>
+	
+		
+	
+	<hr>
+	<br>
+	<h3>
+		<strong>
+			Resumen de la etapa de investigación y desarrollo
+		</strong>	  
+	</h3>	
+	
+	<div class="row">
+		<div class="col-xs-6">
+			  
+			<div class="control-group">
+	  			<div class="controls">	  		
+	  			<h4>Total de horas: {{horasAnalisis + horasDesConcepto + horasDesPropuesta + horasAjInteriorismo}}</h4>
+	  			<h4>Costo total: {{(horasAnalisis + horasDesConcepto + horasDesPropuesta + horasAjInteriorismo) * (ngValorHora) | number}}</h4>
+	  		</div>
+	  	</div>	  
+	</div>
+		
+</div>
+	
+  <script cam-script type="text/form-script">
+  	$scope.open = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened = true;
+  	};
+
+	$scope.open2 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened2 = true;
+  	};
+
+	$scope.open3 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened3 = true;
+  	};
+
+	$scope.open4 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened4 = true;
+  	};
+
+	$scope.open5 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened5 = true;
+  	};
+
+	$scope.open6 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened6 = true;
+  	};
+
+	$scope.open7 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened7 = true;
+  	};
+
+	$scope.open8 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened8 = true;
+  	};
+
+	
+
+  </script>
+</form>
