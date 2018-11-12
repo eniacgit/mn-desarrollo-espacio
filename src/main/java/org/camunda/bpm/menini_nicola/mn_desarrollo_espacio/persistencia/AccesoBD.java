@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresupuesto;
+import org.jfree.util.Log;
 
 public class AccesoBD {
 	
@@ -50,6 +51,7 @@ public class AccesoBD {
 			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			Log.error(e);
 			e.printStackTrace();
 		}
 	}

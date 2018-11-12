@@ -342,6 +342,27 @@
 </div>
 	
   <script cam-script type="text/form-script">
+	
+	var dataCronInvesIdes = $scope.dataCronInvesIdes={};
+	
+	camForm.on('form-loaded', function() {
+
+    // declare variable 'customerData' incuding metadata for serialization
+    camForm.variableManager.createVariable({
+      name: 'dataCronInvesIdes',
+      type: 'Object',
+      value: dataCronInvesIdes,
+      valueInfo: {
+        // indicate that object is serialized as json
+        serializationDataFormat: 'application/json',
+        // provide classname of java object to map to
+        objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoInvesIdes'
+      }
+    });
+
+  });
+
+
   	$scope.open = function($event) {
     	$event.preventDefault();
     	$event.stopPropagation();
