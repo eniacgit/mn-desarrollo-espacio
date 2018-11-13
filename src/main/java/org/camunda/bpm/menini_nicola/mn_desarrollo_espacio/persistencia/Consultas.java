@@ -12,5 +12,26 @@ public class Consultas {
 		String consulta ="select moneda, costo from mn_presupuesto where cotizacion =?;";
 		return consulta;				
 	}
+
+	public String insertarCronogramaInvestigacionYDesarrollo() {
+		String consulta ="insert into mn_crono_invesydes (anMarcaFechInicio,anMarcaFechFin, anMarcaHoras, desConcepFechInicio, desConcepFechFin, desConcepHoras, desPropFechInicio, desPropFechFin, desPropHoras, ajInterFechInicio, ajInterFechFin, ajInterHoras) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+		return consulta;
+	}
+	
+	
+	
+	
+	
+	
+	
+	 	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -52,6 +52,7 @@ public class AccesoBD {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			Log.error(e);
+			System.out.println(">> ERROR 3");
 			e.printStackTrace();
 		}
 	}

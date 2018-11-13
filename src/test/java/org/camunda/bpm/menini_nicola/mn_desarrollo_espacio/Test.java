@@ -1,4 +1,4 @@
-package org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.test;
+package org.camunda.bpm.menini_nicola.mn_desarrollo_espacio;
 
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.AccesoBD;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresupuesto;

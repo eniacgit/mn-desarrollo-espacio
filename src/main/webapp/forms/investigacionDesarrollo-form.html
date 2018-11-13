@@ -67,11 +67,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de inicio</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_INICIO"
+				<input id="anMarcaFechInicio"
+					   type="text"
+				       cam-variable-name="anMarcaFechInicio"
 				       cam-variable-type="Date"
+				       ng-model="dataCronInvesIdes.anMarcaFechInicio"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened" />
 				
 				  <span class="input-group-btn">
@@ -89,11 +91,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de FIN</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_FIN"
+				<input id="anMarcaFechFin"
+					   type="text"
+				       cam-variable-name="anMarcaFechFin"
+				       ng-model="dataCronInvesIdes.anMarcaFechFin"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened2" />
 				
 				  <span class="input-group-btn">
@@ -111,8 +115,9 @@
 			  <div class="control-group">
 				    <label class="control-label">Horas totales</label>
 				    <div class="controls">
-				      <input type="number" 
-				             ng-model="horasAnalisis"
+				      <input id="anMarcaHoras"
+				      	     type="number" 
+				             ng-model="dataCronInvesIdes.anMarcaHoras"
 				             class="form-control" />      
 				    </div>
 			  	</div>
@@ -133,11 +138,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de inicio</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_INICIO_DES_CONCEPTO"
+				<input id="desConcepFechInicio"
+					   type="text"
+				       cam-variable-name="desConcepFechInicio"
+				       ng-model="dataCronInvesIdes.desConcepFechInicio"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened3" />
 				
 				  <span class="input-group-btn">
@@ -155,11 +162,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de FIN</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_FIN_DES_CONCEPTO"
+				<input id="desConcepFechFin"
+				       type="text"
+				       cam-variable-name="desConcepFechFin"
+				       ng-model="dataCronInvesIdes.desConcepFechFin"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened4" />
 				
 				  <span class="input-group-btn">
@@ -177,8 +186,9 @@
 			  <div class="control-group">
 				    <label class="control-label">Horas totales</label>
 				    <div class="controls">
-				      <input type="number" 
-				             ng-model="horasDesConcepto"
+				      <input id="desConcepHoras"
+				      		 type="number" 
+				             ng-model="dataCronInvesIdes.desConcepHoras"
 				             class="form-control" />      
 				    </div>
 			  	</div>
@@ -199,11 +209,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de inicio</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_INICIO_DES_PROPUESTA"
+				<input id="desPropFechInicio"
+					   type="text"
+				       cam-variable-name="desPropFechInicio"
+				       ng-model="dataCronInvesIdes.desPropFechInicio"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened5" />
 				
 				  <span class="input-group-btn">
@@ -221,18 +233,20 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de FIN</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_FIN_DES_PROPUESTA"
+				<input id="desPropFechFin"
+					   type="text"
+				       cam-variable-name="desPropFechFin"
+				       ng-model="dataCronInvesIdes.desPropFechFin"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened6" />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
 				            class="btn btn-default"
 				            ng-click="open6($event)">
-				      <i class="glyphicon glyphicon-calendar"></i>
+				      <i class="glyphicon glyphicon-calendar"></i>				      
 				    </button>
 				  </span>
 				</p>
@@ -243,8 +257,9 @@
 			  <div class="control-group">
 				    <label class="control-label">Horas totales</label>
 				    <div class="controls">
-				      <input type="number" 
-				             ng-model="horasDesPropuesta"
+				      <input id="desPropHoras"
+				      		 type="number" 
+				             ng-model="dataCronInvesIdes.desPropHoras"
 				             class="form-control" />      
 				    </div>
 			  	</div>
@@ -266,11 +281,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de inicio</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_INICIO_INTERIORISMO"
+				<input id="ajInterFechInicio"
+					   type="text"
+				       cam-variable-name="ajInterFechInicio"
+				       ng-model="dataCronInvesIdes.ajInterFechInicio"
 				       cam-variable-type="Date"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened7" />
 				
 				  <span class="input-group-btn">
@@ -288,11 +305,13 @@
 			<div class="control-group">
 			 	<label class="control-label">Fecha de FIN</label>
 				<p class="input-group">		
-				<input type="text"
-				       cam-variable-name="FECHA_FIN_INTERIORISMO"
+				<input id="ajInterFechFin"
+					   type="text"
+				       cam-variable-name="ajInterFechFin"
 				       cam-variable-type="Date"
+				       ng-model="dataCronInvesIdes.ajInterFechFin"
 				       class="form-control"
-				       datepicker-popup="dd-MM-yyyy"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
 				       is-open="dateFieldOpened8" />
 				
 				  <span class="input-group-btn">
@@ -310,8 +329,9 @@
 			  <div class="control-group">
 				    <label class="control-label">Horas totales</label>
 				    <div class="controls">
-				      <input type="number" 
-				             ng-model="horasAjInteriorismo"
+				      <input id="ajInterHoras"
+				      		 type="number" 
+				             ng-model="dataCronInvesIdes.ajInterHoras"
 				             class="form-control" />				       
 				    </div>
 			  	</div>
@@ -333,8 +353,8 @@
 			  
 			<div class="control-group">
 	  			<div class="controls">	  		
-	  			<h4>Total de horas: {{horasAnalisis + horasDesConcepto + horasDesPropuesta + horasAjInteriorismo}}</h4>
-	  			<h4>Costo total: {{(horasAnalisis + horasDesConcepto + horasDesPropuesta + horasAjInteriorismo) * (ngValorHora) | number}}</h4>
+	  			<h4>Total de horas: {{anMarcaHoras + desConcepHoras + desPropHoras + ajInterHoras}}</h4>
+	  			<h4>Costo total: {{(anMarcaHoras + desConcepHoras + desPropHoras + ajInterHoras) * (ngValorHora) | number}}</h4>
 	  		</div>
 	  	</div>	  
 	</div>
@@ -357,10 +377,13 @@
         serializationDataFormat: 'application/json',
         // provide classname of java object to map to
         objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoInvesIdes'
+						 
       }
     });
 
   });
+
+	
 
 
   	$scope.open = function($event) {
