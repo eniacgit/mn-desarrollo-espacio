@@ -9,6 +9,7 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.variable.Variables;
 import org.camunda.bpm.engine.variable.value.ObjectValue;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.Fachada;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.IFachada;
 
 public class CargarPresupuestosAprobadosDelegate implements JavaDelegate{
 
@@ -16,8 +17,8 @@ public class CargarPresupuestosAprobadosDelegate implements JavaDelegate{
 	public void execute(DelegateExecution execution) throws Exception {
 		
 		// Se obtiene listado de clientes con presupuesto aprobado
-		Fachada fachada = new Fachada();
-		ArrayList listaClientes= fachada.obtenerClientesPresupuestoAprobado();
+		IFachada iFachada = Fachada.getSingletonInstance();
+		ArrayList listaClientes= iFachada.obtenerClientesPresupuestoAprobado();
 		
 		// Se convierte lista de clientes a HashMap
 		// el formulario de SDK trabaja con HashMap

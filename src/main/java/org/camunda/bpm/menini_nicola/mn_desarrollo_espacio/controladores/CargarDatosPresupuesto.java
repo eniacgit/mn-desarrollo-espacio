@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.Fachada;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.IFachada;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresupuesto;
 
 public class CargarDatosPresupuesto implements JavaDelegate{
@@ -18,8 +19,8 @@ public class CargarDatosPresupuesto implements JavaDelegate{
 		
 		int indiceLista = Integer.parseInt((String)execution.getVariable("cliente"));
 		//String indice =(String)execution.getVariable("cliente");
-		Fachada fachada = new  Fachada();
-		ArrayList lista = fachada.obtenerClientesPresupuestoAprobado();
+		IFachada iFachada = Fachada.getSingletonInstance();
+		ArrayList lista = iFachada.obtenerClientesPresupuestoAprobado();
 				
 		String nroCotizacion = ((String) lista.get(indiceLista)).replace(" : ", ":"); // quito espacios a los costados del :
 		
@@ -31,7 +32,7 @@ public class CargarDatosPresupuesto implements JavaDelegate{
 		execution.setVariable("cotizacion", cotizacion);
 		execution.setVariable("cliente", cliente);
 		
-		VOPresupuesto presupuesto = fachada.obtenerCostoPresupuesto(cotizacion);
+		VOPresupuesto presupuesto = iFachada.obtenerCostoPresupuesto(cotizacion);
 		execution.setVariable("valorPresupuesto", "" + presupuesto.getCosto());
 		
 	}

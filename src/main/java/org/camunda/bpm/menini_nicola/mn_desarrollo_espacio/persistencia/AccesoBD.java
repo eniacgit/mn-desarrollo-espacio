@@ -58,7 +58,7 @@ public class AccesoBD {
 	}
 		
 	// Retorna un array con los nombres de los clientes cuyos presupuesto fueron aprobados
-	public ArrayList obtenerClientesPresupuestoAprobado() {
+	/*public ArrayList obtenerClientesPresupuestoAprobado() {
 		ArrayList lista = new ArrayList<String>();
 		Connection con = null;
 		con = this.conectarBD();
@@ -83,9 +83,9 @@ public class AccesoBD {
 		}		
 		return lista;
 	}
-	
+	*/
 	// retorna a partir de la cotización la moneda y el costo del presupuesto
-	public VOPresupuesto obtenerCostoPresupuesto(String cotizacion) {
+	/*public VOPresupuesto obtenerCostoPresupuesto(String cotizacion) {
 		Connection con = null;
 		con = this.conectarBD();
 		Consultas consultas = new Consultas();
@@ -105,5 +105,5 @@ public class AccesoBD {
 		}		
 		return presupuesto;
 	}
-	
+	*/
 }
