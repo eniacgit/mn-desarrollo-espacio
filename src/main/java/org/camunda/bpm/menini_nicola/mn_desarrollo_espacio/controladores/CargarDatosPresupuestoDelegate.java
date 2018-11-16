@@ -8,7 +8,7 @@ import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.Fachada;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.IFachada;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresupuesto;
 
-public class CargarDatosPresupuesto implements JavaDelegate{
+public class CargarDatosPresupuestoDelegate implements JavaDelegate{
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {

@@ -12,9 +12,9 @@ import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoInvesIdes
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoInvesIdes;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOCronoInvesIdes;
 
-public class PersitirInvesidesDelegate implements JavaDelegate{
+public class PersitirCronoInvesidesDelegate implements JavaDelegate{
 	
-	private final static Logger LOG = Logger.getLogger(PersitirInvesidesDelegate.class.getName());
+	private final static Logger LOG = Logger.getLogger(PersitirCronoInvesidesDelegate.class.getName());
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
@@ -38,22 +38,16 @@ public class PersitirInvesidesDelegate implements JavaDelegate{
     	voCrongrama.setAjInterFechFin(dataCronoInvesIdes.getAjInterFechFin());
     	voCrongrama.setAjInterHoras(dataCronoInvesIdes.getAjInterHoras());    	
 						
-		iFachada.insertarCronogramaInvestigacionYDesarrollo(voCrongrama);
+    	int rowCount = iFachada.insertarCronogramaInvestigacionYDesarrollo(voCrongrama);
 		
-			
-		/*
-		LOG.info("\n\n\n   ====> PersitirInvesidesDelegate " + dataCronoInvesIdes+ "\n\n\n");	
-		
-		Date fecha =dataCronoInvesIdes.getAjInterFechFin();
-		int horas = dataCronoInvesIdes.getAjInterHoras();
-		
-		LOG.info("==> FECHA: " + fecha);
-		LOG.info("==> HORAS: " + horas);
-		
-		
-		DAOCronoInvesIdes dao = new DAOCronoInvesIdes();
-		dao.insertarCronogramaInvestigacionYDesarrollo(dataCronoInvesIdes);
-		*/
+    	if (rowCount > 0)
+			LOG.info("\n## Se insertó cronograma de investigación y desarrollo en la BD.\nCantidad de registros afectados: " + rowCount);
+		else
+			LOG.info("\n## Cantidad de registros afectados: " + rowCount + "\nNo se insertó cronograma de investigación y desarrollo en la BD");
+    	
+    	// almaceno en una variable de proceso el último indice de la tabla mn_crono_invesydes	
+		int idCronoInvestides = iFachada.obtenerUltimoIndiceInsertadoCronoInvestides();
+		execution.setVariable("idCronoInvestides", idCronoInvestides);
 		
 	}
 

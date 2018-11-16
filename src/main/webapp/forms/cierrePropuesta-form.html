@@ -1,0 +1,185 @@
+
+<form class="form-horizontal">
+
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="control-group">
+			    <label class="control-label">Cotización</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cotizacion"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+		  <div class="control-group">
+			    <label class="control-label">Cliente</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cliente"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor presupuestado (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorPresupuesto"
+				             readonly="true" 
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor/Hora (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorHora"
+				             ng-model="ngValorHora"				             
+				             readonly="true" 
+				             class="form-control" />
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	    
+	</div>
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Cierre de propuesta.
+		</strong>	  
+	</h4>	
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input id="proyCerrFechInicio"
+					   type="text"
+				       cam-variable-name="proyCerrFechInicio"
+				       cam-variable-type="Date"
+				       ng-model="dataCronoCierrePropuesta.proyCerrFechInicio"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"  
+				       is-open="dateFieldOpened" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input id="proyCerrFechFin"
+					   type="text"
+				       cam-variable-name="proyCerrFechFin"
+				       ng-model="dataCronoCierrePropuesta.proyCerrFechFin"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+				       is-open="dateFieldOpened2" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open2($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input id="proyCerrHoras"
+				      	     type="number" 
+				             ng-model="dataCronoCierrePropuesta.proyCerrHoras"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>			
+	</div>
+	
+			
+	<hr>
+	<br>
+	<h3>
+		<strong>
+			Resumen de la etapa de cierre de propuesta
+		</strong>	  
+	</h3>	
+	
+	<div class="row">
+		<div class="col-xs-6">
+			  
+			<div class="control-group">
+	  			<div class="controls">	  		
+	  			<h4>Total de horas: {{dataCronoCierrePropuesta.proyCerrHoras}}</h4>
+	  			<h4>Costo total: {{(dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}}</h4>
+	  		</div>
+	  	</div>	  
+	</div>
+		
+</div>
+	
+  <script cam-script type="text/form-script">
+	
+	var dataCronoCierrePropuesta = $scope.dataCronoCierrePropuesta={};
+	
+	camForm.on('form-loaded', function() {
+
+    // declare variable 'customerData' incuding metadata for serialization
+    camForm.variableManager.createVariable({
+      name: 'dataCronoCierrePropuesta',
+      type: 'Object',
+      value: dataCronoCierrePropuesta,
+      valueInfo: {
+        // indicate that object is serialized as json
+        serializationDataFormat: 'application/json',
+        // provide classname of java object to map to
+        objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoCierrePropuesta'
+						 
+      }
+    });
+
+  });
+  	$scope.open = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened = true;
+  	};
+
+	$scope.open2 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened2 = true;
+  	};
+	
+  </script>
+</form>

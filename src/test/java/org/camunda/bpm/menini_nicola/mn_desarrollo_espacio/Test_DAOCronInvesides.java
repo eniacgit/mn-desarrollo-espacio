@@ -29,8 +29,15 @@ public class Test_DAOCronInvesides {
 		
 		CronoInvesIdes crono = new CronoInvesIdes(anMarcaFechInicio, anMarcaFechFin, anMarcaHoras, desConcepFechInicio, desConcepFechFin,desConcepHoras, desPropFechInicio, desPropFechFin, desPropHoras, ajInterFechInicio, ajInterFechFin, ajInterHoras);
 		DAOCronoInvesIdes dao=new DAOCronoInvesIdes();
-		dao.insertarCronogramaInvestigacionYDesarrollo(crono);
-		System.out.println("cronograma insertado con exito");
+		int rowCount = dao.insertarCronogramaInvestigacionYDesarrollo(crono);
+		
+		if (rowCount > 0)
+			System.out.println("## Se insertó cronograma de investigación y desarrollo en la BD.\nCantidad de registros afectados: " + rowCount);
+		else
+			System.out.println("## Cantidad de registros afectados: " + rowCount + "\nNo se insertó cronograma de investigación y desarrollo en la BD");
+		
+	///	int maxId = dao.obtenerUltimoIndiceInsertado();
+	//	System.out.println("Ultimo indice: " + maxId);
 		
 	}
 

@@ -1,7 +1,5 @@
 package org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia;
 
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,10 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoInvesIdes;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoPresupuestacion;
 import org.jfree.util.Log;
 
-
-public class DAOCronoInvesIdes {
+public class DAOCronoPresupuestacion {
 	
 	// convierte una fecha de tipo Date de java.sql a String con formato "yyyy-MM-dd" para insertar en la BD de MySQL
 	private String fechaToMysql(Date fecha) {
@@ -26,33 +24,26 @@ public class DAOCronoInvesIdes {
 		return fechaMysql;
 	}
 	
-	
-	
-	public int insertarCronogramaInvestigacionYDesarrollo(CronoInvesIdes cronograma){		
+	public int insertarCronogramaPresupuestacion(CronoPresupuestacion cronograma){
 		AccesoBD accesoBD = new AccesoBD();		
 		Connection con = accesoBD.conectarBD();
 		Consultas consultas = new Consultas();
 		
-		String insert=consultas.insertarCronogramaInvestigacionYDesarrollo(); 
+		String insert=consultas.insertarCronogramaPresupuestacion(); 
 		PreparedStatement pstmt = null;
 		int rowCount=0;
 		
 		try {
-			
 			pstmt =con.prepareStatement(insert);
-			pstmt.setString(1, fechaToMysql(cronograma.getAnMarcaFechInicio()));
-			pstmt.setString(2, fechaToMysql(cronograma.getAnMarcaFechFin()));
-			pstmt.setInt(3, cronograma.getAnMarcaHoras());
-			pstmt.setString(4, fechaToMysql(cronograma.getDesConcepFechInicio()));
-			pstmt.setString(5, fechaToMysql(cronograma.getAnMarcaFechFin()));
-			pstmt.setInt(6, cronograma.getDesConcepHoras());
-			pstmt.setString(7, fechaToMysql(cronograma.getDesPropFechInicio()));
-			pstmt.setString(8, fechaToMysql(cronograma.getDesPropFechFin()));
-			pstmt.setInt(9, cronograma.getDesPropHoras());
-			pstmt.setString(10, fechaToMysql(cronograma.getAjInterFechInicio()));
-			pstmt.setString(11, fechaToMysql(cronograma.getAjInterFechFin()));
-			pstmt.setInt(12, cronograma.getAjInterHoras());
-			rowCount = pstmt.executeUpdate();			
+			pstmt.setString(1, fechaToMysql(cronograma.getScoutProdFechInicio()));
+			pstmt.setString(2, fechaToMysql(cronograma.getScoutProdFechFin()));
+			pstmt.setInt(3, cronograma.getScoutProdHoras());
+			pstmt.setString(4, fechaToMysql(cronograma.getSelecProvFechInicio()));
+			pstmt.setString(5, fechaToMysql(cronograma.getSelecProvFechFin()));
+			pstmt.setInt(6, cronograma.getSelecProvHoras());
+			rowCount=pstmt.executeUpdate();
+			
+			
 		} catch (SQLException e) {
 			Log.error(e + "EEROR 1");
 			System.out.println(">> Tipo de datos incorrectos");
@@ -67,16 +58,16 @@ public class DAOCronoInvesIdes {
 				System.out.println(">> ERROR 2");
 				e.printStackTrace();
 			}			
-		}
-		return rowCount;				
-	}	
-		
-	public int obtenerUltimoIndiceInsertadoCronoInvestides() {
+		}		
+		return rowCount;
+	}
+	
+	public int obtenerUltimoIndiceInsertadoCronoPresupuestacion() {
 		AccesoBD accesoBD = new AccesoBD();		
 		Connection con = accesoBD.conectarBD();
 		Consultas consultas = new Consultas();
 		
-		String srtIndice = consultas.obtenerUltimoIndiceInsertadoCronoInvestides();
+		String srtIndice = consultas.obtenerUltimoIndiceInsertadoCronoPresupuestacion();
 		Statement stmt = null;
 		int indice = 0;
 		
@@ -103,6 +94,5 @@ public class DAOCronoInvesIdes {
 		}
 		return indice;
 	}
-	
 
 }

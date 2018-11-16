@@ -5,7 +5,7 @@
       <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="EndEventProcessEnded" name="Finaliza proceso">
-      <bpmn:incoming>SequenceFlow_13h4nu8</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1hhhbay</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEventProcessStarted" targetRef="Task_104o43s" />
     <bpmn:sequenceFlow id="SequenceFlow_1vnwusa" sourceRef="Task_104o43s" targetRef="Task_1oz33rd" />
@@ -19,7 +19,7 @@
       <bpmn:outgoing>SequenceFlow_15e6wh2</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_0gh4fz5" sourceRef="Task_0izkdrx" targetRef="Task_0bs2z21" />
-    <bpmn:serviceTask id="Task_0izkdrx" name="Carga dedatos del presupuesto" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.CargarDatosPresupuesto">
+    <bpmn:serviceTask id="Task_0izkdrx" name="Carga dedatos del presupuesto" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.CargarDatosPresupuestoDelegate">
       <bpmn:incoming>SequenceFlow_15e6wh2</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0gh4fz5</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -28,10 +28,30 @@
       <bpmn:incoming>SequenceFlow_0gh4fz5</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1bpo3xr</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_13h4nu8" sourceRef="Task_13a76rl" targetRef="EndEventProcessEnded" />
-    <bpmn:serviceTask id="Task_13a76rl" name="Persistir invstigacion y desarrollo" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.PersitirInvesidesDelegate">
+    <bpmn:sequenceFlow id="SequenceFlow_13h4nu8" sourceRef="Task_13a76rl" targetRef="Task_0zz3e14" />
+    <bpmn:serviceTask id="Task_13a76rl" name="Persistir cronogrmama investigación y desarrollo" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.PersitirCronoInvesidesDelegate">
       <bpmn:incoming>SequenceFlow_1bpo3xr</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_13h4nu8</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0efcdea" sourceRef="Task_0zz3e14" targetRef="Task_13wb8x1" />
+    <bpmn:userTask id="Task_0zz3e14" name="Presupuestación" camunda:formKey="embedded:app:forms/presupuestacion-form.html">
+      <bpmn:incoming>SequenceFlow_13h4nu8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0efcdea</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_10u3b54" sourceRef="Task_13wb8x1" targetRef="Task_1r3e26j" />
+    <bpmn:serviceTask id="Task_13wb8x1" name="Persistir cronograma presupuestación" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.PersistirCronoPresupuestacionDelegate">
+      <bpmn:incoming>SequenceFlow_0efcdea</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10u3b54</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_01hd8dc" sourceRef="Task_1r3e26j" targetRef="Task_0ofkmeu" />
+    <bpmn:userTask id="Task_1r3e26j" name="Cierrre de propuesta y total de horas" camunda:formKey="embedded:app:forms/cierrePropuesta-form.html">
+      <bpmn:incoming>SequenceFlow_10u3b54</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_01hd8dc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1hhhbay" sourceRef="Task_0ofkmeu" targetRef="EndEventProcessEnded" />
+    <bpmn:serviceTask id="Task_0ofkmeu" name="Persistir cierre de propuesta" camunda:class="org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.controladores.PersistirCronoCierrePropuestaDelegate">
+      <bpmn:incoming>SequenceFlow_01hd8dc</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1hhhbay</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:textAnnotation id="TextAnnotation_0t7kvaj">
       <bpmn:text>Se ingresa costo/hora del desarrollo</bpmn:text>
@@ -51,9 +71,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEventProcessEnded">
-        <dc:Bounds x="1151" y="102" width="36" height="36" />
+        <dc:Bounds x="1710" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1129" y="138" width="82" height="12" />
+          <dc:Bounds x="1689" y="138" width="80" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_08va5r8_di" bpmnElement="SequenceFlow1">
@@ -110,13 +130,41 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_13h4nu8_di" bpmnElement="SequenceFlow_13h4nu8">
         <di:waypoint x="1040" y="120" />
-        <di:waypoint x="1151" y="120" />
+        <di:waypoint x="1087" y="120" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1095.5" y="99" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_076jdcm_di" bpmnElement="Task_13a76rl">
         <dc:Bounds x="940" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0efcdea_di" bpmnElement="SequenceFlow_0efcdea">
+        <di:waypoint x="1187" y="120" />
+        <di:waypoint x="1240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0xppg1a_di" bpmnElement="Task_0zz3e14">
+        <dc:Bounds x="1087" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_10u3b54_di" bpmnElement="SequenceFlow_10u3b54">
+        <di:waypoint x="1340" y="120" />
+        <di:waypoint x="1397" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_19r6reh_di" bpmnElement="Task_13wb8x1">
+        <dc:Bounds x="1240" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_01hd8dc_di" bpmnElement="SequenceFlow_01hd8dc">
+        <di:waypoint x="1497" y="120" />
+        <di:waypoint x="1548" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1adcobg_di" bpmnElement="Task_1r3e26j">
+        <dc:Bounds x="1397" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1hhhbay_di" bpmnElement="SequenceFlow_1hhhbay">
+        <di:waypoint x="1648" y="120" />
+        <di:waypoint x="1710" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0cbkfae_di" bpmnElement="Task_0ofkmeu">
+        <dc:Bounds x="1548" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

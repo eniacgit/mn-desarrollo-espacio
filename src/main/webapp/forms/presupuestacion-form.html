@@ -1,0 +1,276 @@
+
+<form class="form-horizontal">
+
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="control-group">
+			    <label class="control-label">Cotización</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cotizacion"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+		  <div class="control-group">
+			    <label class="control-label">Cliente</label>
+			    <div class="controls">
+			      <input type="text" 
+			             cam-variable-name="cliente"
+			             readonly="true" 
+			             class="form-control" />      
+			    </div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor presupuestado (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorPresupuesto"
+				             readonly="true" 
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	  	<div class="col-xs-3">
+			  <div class="control-group">
+				    <label class="control-label">Valor/Hora (USD)</label>
+				    <div class="controls">
+				      <input type="text" 
+				             cam-variable-name="valorHora"
+				             ng-model="ngValorHora"				             
+				             readonly="true" 
+				             class="form-control" />
+				    </div>
+			  	</div>
+	  	</div>  
+	  	
+	    
+	</div>
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Scouting Productos.
+		</strong>	  
+	</h4>	
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input id="scoutProdFechInicio"
+					   type="text"
+				       cam-variable-name="scoutProdFechInicio"
+				       cam-variable-type="Date"
+				       ng-model="dataCronoPresupuestacion.scoutProdFechInicio"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"  
+				       is-open="dateFieldOpened" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input id="scoutProdFechFin"
+					   type="text"
+				       cam-variable-name="scoutProdFechFin"
+				       ng-model="dataCronoPresupuestacion.scoutProdFechFin"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+				       is-open="dateFieldOpened2" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open2($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input id="scoutProdHoras"
+				      	     type="number" 
+				             ng-model="dataCronoPresupuestacion.scoutProdHoras"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>
+			
+	</div>
+	
+	<hr>
+	<br>
+	<h4>
+		<strong>
+			Selección de proveedores y presupuestación.
+		</strong>	  
+	</h4>
+	
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de inicio</label>
+				<p class="input-group">		
+				<input id="selecProvFechInicio"
+					   type="text"
+				       cam-variable-name="selecProvFechInicio"
+				       ng-model="dataCronoPresupuestacion.selecProvFechInicio"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+				       is-open="dateFieldOpened3" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open3($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			<div class="control-group">
+			 	<label class="control-label">Fecha de FIN</label>
+				<p class="input-group">		
+				<input id="selecProvFechFin"
+				       type="text"
+				       cam-variable-name="selecProvFechFin"
+				       ng-model="dataCronoPresupuestacion.selecProvFechFin"
+				       cam-variable-type="Date"
+				       class="form-control"
+				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+				       is-open="dateFieldOpened4" />
+				
+				  <span class="input-group-btn">
+				    <button type="button"
+				            class="btn btn-default"
+				            ng-click="open4($event)">
+				      <i class="glyphicon glyphicon-calendar"></i>
+				    </button>
+				  </span>
+				</p>
+			</div>	
+		</div>	
+		
+		<div class="col-xs-4">
+			  <div class="control-group">
+				    <label class="control-label">Horas totales</label>
+				    <div class="controls">
+				      <input id="selecProvHoras"
+				      		 type="number" 
+				             ng-model="dataCronoPresupuestacion.selecProvHoras"
+				             class="form-control" />      
+				    </div>
+			  	</div>
+	  	</div>
+	</div>
+	
+	
+		
+	
+	<hr>
+	<br>
+	<h3>
+		<strong>
+			Resumen de la etapa de presupuestación
+		</strong>	  
+	</h3>	
+	
+	<div class="row">
+		<div class="col-xs-6">
+			  
+			<div class="control-group">
+	  			<div class="controls">	  		
+	  			<h4>Total de horas: {{dataCronoPresupuestacion.scoutProdHoras + dataCronoPresupuestacion.selecProvHoras}}</h4>
+	  			<h4>Costo total: {{(dataCronoPresupuestacion.scoutProdHoras + dataCronoPresupuestacion.selecProvHoras) * (ngValorHora) | number}}</h4>
+	  		</div>
+	  	</div>	  
+	</div>
+		
+</div>
+	
+  <script cam-script type="text/form-script">
+	
+	var dataCronoPresupuestacion = $scope.dataCronoPresupuestacion={};
+	
+	camForm.on('form-loaded', function() {
+
+    // declare variable 'customerData' incuding metadata for serialization
+    camForm.variableManager.createVariable({
+      name: 'dataCronoPresupuestacion',
+      type: 'Object',
+      value: dataCronoPresupuestacion,
+      valueInfo: {
+        // indicate that object is serialized as json
+        serializationDataFormat: 'application/json',
+        // provide classname of java object to map to
+        objectTypeName: 'org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoPresupuestacion'
+						 
+      }
+    });
+
+  });
+
+	
+
+
+  	$scope.open = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened = true;
+  	};
+
+	$scope.open2 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened2 = true;
+  	};
+
+	$scope.open3 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened3 = true;
+  	};
+
+	$scope.open4 = function($event) {
+    	$event.preventDefault();
+    	$event.stopPropagation();
+
+    	$scope.dateFieldOpened4 = true;
+  	};	
+
+  </script>
+</form>

@@ -3,12 +3,21 @@ package org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoCierrePropuesta;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoInvesIdes;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoPresupuestacion;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.DesarrolloEspacio;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.AccesoBD;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCliente;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoCierrePropuesta;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoInvesIdes;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoPresupuestacion;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAODesarrolloEspacio;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOPresupuesto;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOCronoCierrePropuesta;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOCronoInvesIdes;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOCronoPresupuestacion;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VODesarrolloEspacio;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresupuesto;
 
 
@@ -34,7 +43,7 @@ public class Fachada implements IFachada {
 	 * @see org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.logica.IFachada#insertarCronogramaInvestigacionYDesarrollo(org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOCronoInvesIdes)
 	 */
     @Override
-	public void insertarCronogramaInvestigacionYDesarrollo(VOCronoInvesIdes voCronograma){
+	public int insertarCronogramaInvestigacionYDesarrollo(VOCronoInvesIdes voCronograma){
     	DAOCronoInvesIdes dao = new DAOCronoInvesIdes();
     	CronoInvesIdes crono = new CronoInvesIdes();
     	    	
@@ -52,7 +61,7 @@ public class Fachada implements IFachada {
     	crono.setAjInterFechFin(voCronograma.getAjInterFechFin());
     	crono.setAjInterHoras(voCronograma.getAjInterHoras());    	  	
     	
-    	dao.insertarCronogramaInvestigacionYDesarrollo(crono);    	
+    	return dao.insertarCronogramaInvestigacionYDesarrollo(crono);    	
     }
     
     
@@ -68,26 +77,74 @@ public class Fachada implements IFachada {
     	return dao.obtenerCostoPresupuesto(cotizacion);
     }
 
+    @Override
+    public int insertarCronogramaPresupuestacion(VOCronoPresupuestacion voCronograma){
+    	DAOCronoPresupuestacion dao=new DAOCronoPresupuestacion();
+    	CronoPresupuestacion crono = new CronoPresupuestacion();
+    	
+    	crono.setScoutProdFechInicio(voCronograma.getScoutProdFechInicio());
+    	crono.setScoutProdFechFin(voCronograma.getScoutProdFechFin());
+    	crono.setScoutProdHoras(voCronograma.getScoutProdHoras());
+    	crono.setSelecProvFechInicio(voCronograma.getSelecProvFechInicio());
+    	crono.setSelecProvFechFin(voCronograma.getSelecProvFechFin());
+    	crono.setScoutProdHoras(voCronograma.getScoutProdHoras());
+    	
+    	return dao.insertarCronogramaPresupuestacion(crono);    	
+    }
+    
+    @Override
+    public int insertarCronogramaCierrePropuesta(VOCronoCierrePropuesta voCronograma){
+    	DAOCronoCierrePropuesta dao = new DAOCronoCierrePropuesta();
+    	CronoCierrePropuesta crono = new CronoCierrePropuesta();
+    	
+    	crono.setProyCerrFechInicio(voCronograma.getProyCerrFechInicio());
+    	crono.setProyCerrFechFin(voCronograma.getProyCerrFechFin());
+    	crono.setProyCerrHoras(voCronograma.getProyCerrHoras());
+    	
+    	return dao.insertarCronogramaCierrePropuesta(crono);    	
+    }
+    
+    @Override
+    public int obtenerUltimoIndiceInsertadoCronoInvestides() {
+    	DAOCronoInvesIdes dao=new DAOCronoInvesIdes();
+    	return dao.obtenerUltimoIndiceInsertadoCronoInvestides();
+    }
+    
+    @Override
+    public int obtenerUltimoIndiceInsertadoCronoPresupuestacion() {
+    	DAOCronoPresupuestacion dao=new DAOCronoPresupuestacion();
+    	return dao.obtenerUltimoIndiceInsertadoCronoPresupuestacion();
+    }
+    
+    @Override
+    public int obtenerUltimoIndiceInsertadoCronoCierrePropuesta() {
+    	DAOCronoCierrePropuesta dao = new DAOCronoCierrePropuesta();
+    	return dao.obtenerUltimoIndiceInsertadoCronoCierrePropuesta();
+    }
+    
+    @Override
+    public int obtenerIdCliente(String nombre) {
+    	DAOCronoCierrePropuesta dao = new DAOCronoCierrePropuesta();
+    	return dao.obtenerIdCliente(nombre);
+    }
+    
+    @Override
+    public int insertarDesarrolloEspacio(VODesarrolloEspacio voEspacio) {
+    	
+    	DesarrolloEspacio espacio = new DesarrolloEspacio();
+    	
+    	espacio.setCotizacion(voEspacio.getCotizacion());
+    	espacio.setIdCliente(voEspacio.getIdCliente());
+    	espacio.setValorHora(voEspacio.getValorHora());
+    	espacio.setIdCronoInvestides(voEspacio.getIdCronoInvestides());
+    	espacio.setIdCronoPresupuestacion(voEspacio.getIdCronoPresupuestacion());
+    	espacio.setIdCronoCierreProp(voEspacio.getIdCronoCierreProp());   	
+    	
+    	DAODesarrolloEspacio dao = new DAODesarrolloEspacio();
+    	return dao.insertarDesarrolloEspacio(espacio);    	
+    }
+    
 }
 
 
 
-
-
-
-
-///////////
-/*
-public class Fachada {
-	
-	public ArrayList obtenerClientesPresupuestoAprobado() {
-		AccesoBD accesoBD = new AccesoBD();
-		return accesoBD.obtenerClientesPresupuestoAprobado();
-	}
-	
-	public VOPresupuesto obtenerCostoPresupuesto(String cotizacion) {
-		AccesoBD accesoBD = new AccesoBD();
-		return accesoBD.obtenerCostoPresupuesto(cotizacion);
-	}
-}
-*/
