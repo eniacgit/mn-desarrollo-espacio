@@ -142,9 +142,45 @@
 	  			<h4>Costo total: {{(dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}}</h4>
 	  		</div>
 	  	</div>	  
-	</div>
-		
+	</div>		
 </div>
+
+<hr>
+<br>
+<p class="text-center"> <Strong>Detalle costo/hora del proceso desarrollo espacio.</Strong> </p>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr class="bg-primary">
+      <th scope="col">#</th>
+      <th scope="col">Horas</th>
+      <th scope="col">Costo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-secondary">
+      <th scope="row">Investigación y desarrollo</th>
+      <td>{{dataCronInvesIdes.anMarcaHoras + dataCronInvesIdes.desConcepHoras + dataCronInvesIdes.desPropHoras + dataCronInvesIdes.ajInterHoras + dataCronoPresupuestacion.scoutProdHoras + dataCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras}}</td>
+      <td>Otto</td>      
+    </tr>
+    <tr class="bg-secondary">
+      <th scope="row">Presupuestación</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr class="bg-secondary">
+      <th scope="row">Cierre de propuesta</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+    <tr class="bg-danger">
+      <th scope="row"><strong>Total</strong></th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+</table>
+
+
 	
   <script cam-script type="text/form-script">
 	
