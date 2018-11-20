@@ -360,10 +360,22 @@
 	</div>
 		
 </div>
+
 	
   <script cam-script type="text/form-script">
-	
+ 	
 	var dataCronInvesIdes = $scope.dataCronInvesIdes={};
+	
+	   camForm.on('form-loaded', function() {
+       camForm.variableManager.createVariable({
+        name: 'jsonCronInvesIdes',
+        type: 'json',
+        value: dataCronInvesIdes
+      });
+    });
+
+
+
 	
 	camForm.on('form-loaded', function() {
 

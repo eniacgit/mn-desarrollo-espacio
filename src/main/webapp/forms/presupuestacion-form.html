@@ -222,6 +222,14 @@
   <script cam-script type="text/form-script">
 	
 	var dataCronoPresupuestacion = $scope.dataCronoPresupuestacion={};
+
+	camForm.on('form-loaded', function() {
+       camForm.variableManager.createVariable({
+        name: 'jsonCronoPresupuestacion',
+        type: 'json',
+        value: dataCronoPresupuestacion
+      });
+    });
 	
 	camForm.on('form-loaded', function() {
 

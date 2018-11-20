@@ -4,9 +4,12 @@ import java.util.Date;
 
 public class CronoCierrePropuesta {
 
-	private Date proyCerrFechInicio;
-	private Date proyCerrFechFin;
-	private int proyCerrHoras;
+	protected Date proyCerrFechInicio;
+	protected Date proyCerrFechFin;
+	protected int proyCerrHoras;
+	
+	protected int totalHorasInvesIdes;
+	
 	
 	public CronoCierrePropuesta() {
 		super();	
@@ -18,6 +21,10 @@ public class CronoCierrePropuesta {
 		this.proyCerrFechFin = proyCerrFechFin;
 		this.proyCerrHoras = proyCerrFechHoras;
 	}
+	
+	
+
+	
 
 	public Date getProyCerrFechInicio() {
 		return proyCerrFechInicio;
@@ -43,5 +50,16 @@ public class CronoCierrePropuesta {
 		this.proyCerrHoras = proyCerrHoras;
 	}
 
+	public int getTotalHorasInvesIdes() {
+		return totalHorasInvesIdes;
+	}
+
+	public void setTotalHorasInvesIdes(int totalHorasInvesIdes) {
+		this.totalHorasInvesIdes = totalHorasInvesIdes;
+	}
+
+	
+
+	
 	
 }

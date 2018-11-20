@@ -73,9 +73,11 @@ public class PersistirCronoCierrePropuestaDelegate implements JavaDelegate{
 			LOG.info("\n## Cantidad de registros afectados: " + rowCount2 + "\nNo se insertó desarrollo espacio en la BD");
 		
 		
-		//int valorPresupuesto = (int) execution.getVariable("valorPresupuesto");
+		// almaceno la cantidad total de horas de la etapa de cierre de propuesta que usare en el resumen final
+		/*int totalHorasCierrePropuesta = voCronograma.getProyCerrHoras();
+		execution.setVariable("totalHorasCierrePropuesta", totalHorasCierrePropuesta);
 		
-		
+		execution.setVariable("prueba", 1000);*/
 		
 	}
 

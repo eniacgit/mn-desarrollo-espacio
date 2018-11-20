@@ -151,38 +151,67 @@
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr class="bg-primary">
-      <th scope="col">#</th>
-      <th scope="col">Horas</th>
-      <th scope="col">Costo</th>
+      <th scope="col">Etapas del proceso desarrollo espacio</th>
+      <th scope="col">Horas (Hs)</th>
+      <th scope="col">Costo (USD)</th>
     </tr>
   </thead>
   <tbody>
     <tr class="bg-secondary">
       <th scope="row">Investigación y desarrollo</th>
-      <td>{{dataCronInvesIdes.anMarcaHoras + dataCronInvesIdes.desConcepHoras + dataCronInvesIdes.desPropHoras + dataCronInvesIdes.ajInterHoras + dataCronoPresupuestacion.scoutProdHoras + dataCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras}}</td>
-      <td>Otto</td>      
+      <td>{{jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras}}</td>
+      <td>{{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras) * (ngValorHora) | number}}</td>      
     </tr>
     <tr class="bg-secondary">
       <th scope="row">Presupuestación</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
+      <td>{{jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras}}</td>
+      <td>{{(jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras) * (ngValorHora) | number}}</td>
     </tr>
     <tr class="bg-secondary">
       <th scope="row">Cierre de propuesta</th>
-      <td>Larry</td>
-      <td>the Bird</td>
+      <td>{{dataCronoCierrePropuesta.proyCerrHoras}}</td>
+      <td>{{dataCronoCierrePropuesta.proyCerrHoras * (ngValorHora) | number}}</td>
     </tr>
     <tr class="bg-danger">
       <th scope="row"><strong>Total</strong></th>
-      <td>Larry</td>
-      <td>the Bird</td>
+      <td>{{jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras}}</td>
+      <td>{{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}}</td>
     </tr>
   </tbody>
 </table>
 
-
 	
   <script cam-script type="text/form-script">
+
+
+camForm.on('form-loaded', function() {
+  // tell the form SDK to fetch the json variable named 'customer'
+  camForm.variableManager.fetchVariable('jsonCronInvesIdes');
+});
+
+camForm.on('variables-fetched', function() {
+  // work with the variable (bind it to the current AngularJS $scope)
+  $scope.jsonCronInvesIdes = camForm.variableManager.variableValue('jsonCronInvesIdes');
+});
+
+
+camForm.on('form-loaded', function() {
+  // tell the form SDK to fetch the json variable named 'jsonCronoPresupuestacion'
+  camForm.variableManager.fetchVariable('jsonCronoPresupuestacion');
+});
+
+camForm.on('variables-fetched', function() {
+  // work with the variable (bind it to the current AngularJS $scope)
+  $scope.jsonCronoPresupuestacion = camForm.variableManager.variableValue('jsonCronoPresupuestacion');
+});
+
+
+
+
+
+
+
+
 	
 	var dataCronoCierrePropuesta = $scope.dataCronoCierrePropuesta={};
 	
