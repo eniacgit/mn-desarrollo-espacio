@@ -46,8 +46,8 @@ public class PersitirCronoInvesidesDelegate implements JavaDelegate{
 			LOG.info("\n## Cantidad de registros afectados: " + rowCount + "\nNo se insertó cronograma de investigación y desarrollo en la BD");
     	
     	// almaceno en una variable de proceso el último indice de la tabla mn_crono_invesydes	
-		//int idCronoInvestides = iFachada.obtenerUltimoIndiceInsertadoCronoInvestides();
-		//execution.setVariable("idCronoInvestides", idCronoInvestides);
+		int idCronoInvestides = iFachada.obtenerUltimoIndiceInsertadoCronoInvestides();
+		execution.setVariable("idCronoInvestides", idCronoInvestides);
 		
 		// almaceno la cantidad total de horas de la etapa de investigación y desarrollo que usaré en el resumen final
 		//int totalHorasInvesIdes = voCrongrama.getAnMarcaHoras() + voCrongrama.getDesConcepHoras() + voCrongrama.getDesPropHoras() +voCrongrama.getAjInterHoras();

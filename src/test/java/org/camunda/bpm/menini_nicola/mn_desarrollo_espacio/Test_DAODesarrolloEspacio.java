@@ -10,9 +10,9 @@ public class Test_DAODesarrolloEspacio {
 		String cotizacion = "88888-88";
 		int idCliente = 2;
 		int valorHora = 10;
-		int idCronoInvestides = 5;
-		int idCronoPresupuestacion =9;
-		int idCronoCierreProp = 2;
+		int idCronoInvestides = 32;
+		int idCronoPresupuestacion =35;
+		int idCronoCierreProp = 13;
 		
 		
 		DesarrolloEspacio espacio = new DesarrolloEspacio(cotizacion,idCliente, valorHora, idCronoInvestides, idCronoPresupuestacion, idCronoCierreProp);

@@ -31,7 +31,7 @@ public class Test_DAOCronoCierrePropuesta {
 		
 	
 		
-		System.out.println(daoCronoCierrePropuesta.obtenerIdCliente("Bolimar"));
+		//System.out.println(daoCronoCierrePropuesta.obtenerIdCliente("Bolimar"));
 	}
 
 }

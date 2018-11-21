@@ -36,8 +36,8 @@ public class PersistirCronoPresupuestacionDelegate implements JavaDelegate{
 			LOG.info("\n## Cantidad de registros afectados: " + rowCount + "\nNo se insertó cronograma de presupuestacion en la BD");
 		
 		// almaceno en una variable de proceso el último indice de la tabla mn_crono_presupuestacion	
-		//int idCronoPresupuestacion = iFachada.obtenerUltimoIndiceInsertadoCronoPresupuestacion();
-		//execution.setVariable("idCronoPresupuestacion", idCronoPresupuestacion);
+		int idCronoPresupuestacion = iFachada.obtenerUltimoIndiceInsertadoCronoPresupuestacion();
+		execution.setVariable("idCronoPresupuestacion", idCronoPresupuestacion);
 		
 		// almaceno la cantidad total de horas de la etapa de presupuestacion que usare en el resumen final
 		//int totalHorasPresupuestacion = voCrongrama.getScoutProdHoras() + voCrongrama.getSelecProvHoras();
