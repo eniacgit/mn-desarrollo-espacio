@@ -32,6 +32,7 @@
 				    <div class="controls">
 				      <input type="text" 
 				             cam-variable-name="valorPresupuesto"
+				             ng-model="valorPresupuesto"
 				             readonly="true" 
 				             class="form-control" />      
 				    </div>
@@ -179,6 +180,10 @@
     </tr>
   </tbody>
 </table>
+
+<br>
+<br>
+<h4>Ganancia: {{valorPresupuesto | number}} - {{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}} = </h4>
 
 	
   <script cam-script type="text/form-script">

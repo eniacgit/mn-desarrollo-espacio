@@ -9,7 +9,7 @@ import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.valueObjects.VOPresup
 import org.jfree.util.Log;
 
 public class DAOPresupuesto {
-
+/*
 	public VOPresupuesto obtenerCostoPresupuesto(String cotizacion) {
 		AccesoBD accesoBD = new AccesoBD();		
 		Connection con = accesoBD.conectarBD();
@@ -24,8 +24,11 @@ public class DAOPresupuesto {
 			pstmt.setString(1, cotizacion); 	
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
-			presupuesto.setMoneda(rs.getString("moneda"));
-			presupuesto.setCosto(rs.getFloat("costo"));			
+			String moneda = rs.getString("moneda");
+			presupuesto.setMoneda(moneda);
+			float costo = rs.getFloat("costo");
+			presupuesto.setCosto(costo);
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,7 +45,40 @@ public class DAOPresupuesto {
 		}		
 		return presupuesto;		
 	}
-	
+*/
+	public float obtenerCostoPresupuesto(String cotizacion) {
+		AccesoBD accesoBD = new AccesoBD();		
+		Connection con = accesoBD.conectarBD();
+		Consultas consultas = new Consultas();
+		
+		
+		String strPresupuesto = consultas.obtenerCostoPresupuesto();
+		float costo = 0;
+		PreparedStatement pstmt=null;
+		try {
+			pstmt = con.prepareStatement(strPresupuesto);
+			pstmt.setString(1, cotizacion); 	
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();		
+			costo = rs.getFloat("costo");			
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		finally {
+			try {
+				pstmt.close();
+				accesoBD.desconectarBD(con);
+			} catch (SQLException e) {
+				Log.error(e + "ERROR 2");
+				System.out.println(">> ERROR 2");
+				e.printStackTrace();
+			}			
+		}		
+		return costo;		
+	}
+
 	
 	
 }

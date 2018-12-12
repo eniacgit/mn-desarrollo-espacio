@@ -72,7 +72,7 @@ public class Fachada implements IFachada {
     }
     
     @Override
-    public VOPresupuesto obtenerCostoPresupuesto(String cotizacion) {
+    public float obtenerCostoPresupuesto(String cotizacion) {
     	DAOPresupuesto dao = new DAOPresupuesto();
     	return dao.obtenerCostoPresupuesto(cotizacion);
     }

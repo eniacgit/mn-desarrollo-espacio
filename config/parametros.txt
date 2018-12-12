@@ -9,5 +9,5 @@ usuario=root
 password=armagedon
 
 # CARPETA PARA ALMACENAR REPORTES PDF
-carpeta_reportes=//home//danielo//reportes_camunda//
+carpeta_reportes=//home//danny//reportes//
 

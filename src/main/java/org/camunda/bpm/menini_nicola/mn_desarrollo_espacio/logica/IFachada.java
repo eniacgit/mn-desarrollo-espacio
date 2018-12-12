@@ -15,8 +15,6 @@ public interface IFachada {
 
 	ArrayList obtenerClientesPresupuestoAprobado();
 
-	VOPresupuesto obtenerCostoPresupuesto(String cotizacion);
-
 	int insertarCronogramaPresupuestacion(VOCronoPresupuestacion voCronograma);
 
 	int insertarCronogramaCierrePropuesta(VOCronoCierrePropuesta voCronograma);
@@ -30,6 +28,8 @@ public interface IFachada {
 	int obtenerIdCliente(String nombre);
 
 	int insertarDesarrolloEspacio(VODesarrolloEspacio voEspacio);
+
+	float obtenerCostoPresupuesto(String cotizacion);
 	
 	
 

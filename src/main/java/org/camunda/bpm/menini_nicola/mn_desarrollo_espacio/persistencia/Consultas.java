@@ -9,8 +9,9 @@ public class Consultas {
 	}
 	
 	// CONSULTAS TABLA: mn_presupuesto
-	public String obtenerCostoPresupuesto() {
-		String consulta ="SELECT moneda, costo FROM mn_presupuesto WHERE cotizacion =?;";
+	public String obtenerCostoPresupuesto() {		
+		//String consulta ="SELECT * FROM mn_presupuesto WHERE cotizacion =?;";
+		String consulta ="SELECT costo FROM mn_presupuesto WHERE cotizacion =?;";
 		return consulta;				
 	}
 

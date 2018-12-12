@@ -32,8 +32,9 @@ public class CargarDatosPresupuestoDelegate implements JavaDelegate{
 		execution.setVariable("cotizacion", cotizacion);
 		execution.setVariable("cliente", cliente);
 		
-		VOPresupuesto presupuesto = iFachada.obtenerCostoPresupuesto(cotizacion);
-		execution.setVariable("valorPresupuesto", "" + presupuesto.getCosto());
+		String strCosto = ""+iFachada.obtenerCostoPresupuesto(cotizacion);
+		execution.setVariable("valorPresupuesto", strCosto);
+		
 		
 	}
 
