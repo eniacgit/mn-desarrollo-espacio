@@ -35,7 +35,10 @@ public class CargarDatosPresupuestoDelegate implements JavaDelegate{
 		String strCosto = ""+iFachada.obtenerCostoPresupuesto(cotizacion);
 		execution.setVariable("valorPresupuesto", strCosto);
 		
-		
+		// seteo estado del presupuesto en 2 porque está en desarrollo
+		int estadoPresupuesto = 2; // 0 = anulado, 1 = aprobado, 2 = en desarrollo
+		int idPresupuesto = iFachada.obtenerIdPresupuesto(cotizacion);
+		iFachada.updateEstadoPresupuesto(idPresupuesto, estadoPresupuesto);
 	}
 
 }

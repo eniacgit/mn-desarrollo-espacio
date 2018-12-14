@@ -9,6 +9,7 @@ import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.CronoPresupues
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.modelo.DesarrolloEspacio;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.AccesoBD;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCliente;
+import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOClientePresupuesto;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoCierrePropuesta;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoInvesIdes;
 import org.camunda.bpm.menini_nicola.mn_desarrollo_espacio.persistencia.DAOCronoPresupuestacion;
@@ -142,6 +143,18 @@ public class Fachada implements IFachada {
     	
     	DAODesarrolloEspacio dao = new DAODesarrolloEspacio();
     	return dao.insertarDesarrolloEspacio(espacio);    	
+    }
+    
+    @Override
+    public int updateEstadoPresupuesto(int idPresupuesto, int estado) {
+    	DAOClientePresupuesto dao = new DAOClientePresupuesto();
+    	return dao.updateEstadoPresupuesto(idPresupuesto, estado);
+    }
+    
+    @Override
+    public int obtenerIdPresupuesto (String cotizacion) {
+    	DAOPresupuesto dao = new DAOPresupuesto();
+    	return dao.obtenerIdPresupuesto(cotizacion);
     }
     
 }

@@ -30,6 +30,10 @@ public interface IFachada {
 	int insertarDesarrolloEspacio(VODesarrolloEspacio voEspacio);
 
 	float obtenerCostoPresupuesto(String cotizacion);
+
+	int updateEstadoPresupuesto(int idPresupuesto, int estado);
+
+	int obtenerIdPresupuesto(String cotizacion);
 	
 	
 

@@ -4,7 +4,8 @@ public class Consultas {
 	
 	// CONSULTAS TABLA: mn_cliente, mn_cliente_presupuesto, mn_presupuesto
 	public String obtenerClientesPresupuestoAprobado() {
-		String consulta = "SELECT CONCAT(pre.cotizacion,' : ' ,cli.nombre) AS nombre FROM mn_cliente cli INNER JOIN mn_cliente_presupuesto cp ON cli.idCliente = cp.idCliente AND cp.estado=1 INNER JOIN mn_presupuesto pre ON pre.idPresupuesto = cp.idPresupuesto;";
+		//String consulta = "SELECT CONCAT(pre.cotizacion,' : ' ,cli.nombre) AS nombre FROM mn_cliente cli INNER JOIN mn_cliente_presupuesto cp ON cli.idCliente = cp.idCliente AND cp.estado=1 INNER JOIN mn_presupuesto pre ON pre.idPresupuesto = cp.idPresupuesto;";
+		String consulta ="SELECT CONCAT(pre.cotizacion,' : ' ,cli.nombre) AS nombre FROM mn_cliente cli INNER JOIN mn_cliente_presupuesto cp ON cli.idCliente = cp.idCliente AND cp.estado=1 INNER JOIN mn_presupuesto pre ON pre.idPresupuesto = cp.idPresupuesto INNER JOIN mn_espacio esp ON esp.idPresupuesto = cp.idPresupuesto;";
 		return consulta;	
 	}
 	
@@ -14,6 +15,12 @@ public class Consultas {
 		String consulta ="SELECT costo FROM mn_presupuesto WHERE cotizacion =?;";
 		return consulta;				
 	}
+	
+	public String obtenerIdPresupuesto() {
+		String consulta = "select idPresupuesto from mn_presupuesto where cotizacion =?;";
+		return consulta;
+	}
+	
 
 	// CONSULTAS TABLA: mn_crono_invesydes	
 	public String insertarCronogramaInvestigacionYDesarrollo() {
@@ -63,7 +70,11 @@ public class Consultas {
 	}
 	
 	
-	
+	public String updateEstadoPresupuesto()
+	{
+		String update="update mn_cliente_presupuesto set estado=? where idPresupuesto=?;";
+		return update;
+	}
 	
 	
 	

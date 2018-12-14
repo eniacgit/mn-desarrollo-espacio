@@ -160,13 +160,13 @@
   <tbody>
     <tr class="bg-secondary">
       <th scope="row">Investigación y desarrollo</th>
-      <td>{{jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras}}</td>
-      <td>{{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras) * (ngValorHora) | number}}</td>      
+      <td>{{calcularHorasInvesYdes()}}</td>
+      <td>{{calcularHorasInvesYdes() * (ngValorHora) | number}}</td>      
     </tr>
     <tr class="bg-secondary">
       <th scope="row">Presupuestación</th>
-      <td>{{jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras}}</td>
-      <td>{{(jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras) * (ngValorHora) | number}}</td>
+      <td>{{calcularHorasPresupuestacion()}}</td>
+      <td>{{calcularHorasPresupuestacion() * (ngValorHora) | number}}</td>
     </tr>
     <tr class="bg-secondary">
       <th scope="row">Cierre de propuesta</th>
@@ -175,16 +175,15 @@
     </tr>
     <tr class="bg-danger">
       <th scope="row"><strong>Total</strong></th>
-      <td>{{jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras}}</td>
-      <td>{{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}}</td>
+      <td>{{ calcularHorasInvesYdes() + calcularHorasPresupuestacion() + dataCronoCierrePropuesta.proyCerrHoras}}</td>
+      <td>{{(calcularHorasInvesYdes() + calcularHorasPresupuestacion() + dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}}</td>
     </tr>
   </tbody>
 </table>
 
 <br>
 <br>
-<h4>Ganancia: {{valorPresupuesto | number}} - {{(jsonCronInvesIdes.anMarcaHoras + jsonCronInvesIdes.desConcepHoras + jsonCronInvesIdes.desPropHoras + jsonCronInvesIdes.ajInterHoras + jsonCronoPresupuestacion.scoutProdHoras + jsonCronoPresupuestacion.selecProvHoras + dataCronoCierrePropuesta.proyCerrHoras) * (ngValorHora) | number}} = </h4>
-
+<h4>Ganancia (USD): {{calcularGananciaTotal()}}</h4>
 	
   <script cam-script type="text/form-script">
 
@@ -209,12 +208,6 @@ camForm.on('variables-fetched', function() {
   // work with the variable (bind it to the current AngularJS $scope)
   $scope.jsonCronoPresupuestacion = camForm.variableManager.variableValue('jsonCronoPresupuestacion');
 });
-
-
-
-
-
-
 
 
 	
@@ -250,6 +243,40 @@ camForm.on('variables-fetched', function() {
 
     	$scope.dateFieldOpened2 = true;
   	};
+
+	// Funcion para calcular total de horas de investigación y desarrollo
+	$scope.calcularHorasInvesYdes = function(){
+	
+		var anMarcaHoras = $scope.jsonCronInvesIdes.anMarcaHoras;
+		var desConcepHoras = $scope.jsonCronInvesIdes.desConcepHoras;
+		var desPropHoras = $scope.jsonCronInvesIdes.desPropHoras;
+		var ajInterHoras = $scope.jsonCronInvesIdes.ajInterHoras;
+
+ 		return anMarcaHoras + desConcepHoras + desPropHoras + ajInterHoras; 
+	}	
+
+	// Funcion para calcular total de horas de presupuestacion
+	$scope.calcularHorasPresupuestacion = function(){
+ 
+		var scoutProdHoras = $scope.jsonCronoPresupuestacion.scoutProdHoras;
+		var selecProvHoras = $scope.jsonCronoPresupuestacion.selecProvHoras;
+
+		return scoutProdHoras + selecProvHoras;
+	}
+
+	// Funcion para calcular la ganancia total
+	$scope.calcularGananciaTotal = function(){
+	
+		var totHorasInvesYdes = $scope.calcularHorasInvesYdes();
+		var totHorasPresup = $scope.calcularHorasPresupuestacion();
+		var totHorasCierreProp = $scope.dataCronoCierrePropuesta.proyCerrHoras;
+		var valorHora = $scope.ngValorHora;
+
+		var costoPresupuesto = $scope.valorPresupuesto;
+		
+		return parseInt(costoPresupuesto) - (totHorasInvesYdes + totHorasPresup + totHorasCierreProp) * parseInt(valorHora);  
+		
+	}
 	
   </script>
 </form>

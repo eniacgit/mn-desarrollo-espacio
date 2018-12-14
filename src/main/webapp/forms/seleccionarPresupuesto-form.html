@@ -17,10 +17,26 @@
       	cam-variable-name="cliente"
       	cam-variable-type="String"
       	cam-choices="PRESUPUESTOS_APROBADOS"
-      	required
+      	ng-required="!cancelarProduccion"      	 
       	class="form-control">      	
+      	<option value ="">--Ingresar Cliente--</option>
       </select>
       
     </div>
   </div>  
+  
+  <br>
+  
+  <div class="control-group">
+  	<div class="controls">
+	     <label for="descartarPresupuesto">Descartar producción</label>
+	     <input type="checkbox"
+	            cam-variable-name="cancelarProduccion"
+	            cam-variable-type="Boolean"
+	            name="cancelarProduccion"
+	            ng-readonly="cancelarProduccion == true"
+	            class="form-control" />
+	</div>            
+  </div>
+  
 </form>
