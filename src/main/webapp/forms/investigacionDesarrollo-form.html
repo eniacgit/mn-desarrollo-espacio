@@ -1,5 +1,5 @@
 
-<form class="form-horizontal">
+<form role="form" name="form" class="form-horizontal" >
 
 	<div class="row">
 		<div class="col-xs-3">
@@ -75,7 +75,8 @@
 				       ng-model="dataCronInvesIdes.anMarcaFechInicio"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"  
-				       is-open="dateFieldOpened" />
+				       is-open="dateFieldOpened" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -99,7 +100,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened2" />
+				       is-open="dateFieldOpened2" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -119,7 +121,19 @@
 				      <input id="anMarcaHoras"
 				      	     type="number" 
 				             ng-model="dataCronInvesIdes.anMarcaHoras"
-				             class="form-control" />      
+				             class="form-control" 				             
+				             required 
+				             name="ANMARCASHORAS" 
+				             min="0" />     
+				             
+				    <!--validar horas totales-->
+		      		<p>
+		      			<span style="color:red" ng-show="form.ANMARCASHORAS.$dirty && form.ANMARCASHORAS.$invalid">
+		  					<span ng-show="form.ANMARCASHORAS.$error.required">horas totales obligatorio</span>
+		  				</span>
+		      		</p>
+				      
+				              
 				    </div>
 			  	</div>
 	  	</div>
@@ -146,7 +160,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened3" />
+				       is-open="dateFieldOpened3" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -170,7 +185,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened4" />
+				       is-open="dateFieldOpened4" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -190,7 +206,18 @@
 				      <input id="desConcepHoras"
 				      		 type="number" 
 				             ng-model="dataCronInvesIdes.desConcepHoras"
-				             class="form-control" />      
+				             class="form-control"
+				             name="DESCONCEPHORAS" 
+				             required 
+				             min="0" />    
+				      
+				    <!--validar horas totales-->
+		      		<p>
+		      			<span style="color:red" ng-show="form.DESCONCEPHORAS.$dirty && form.DESCONCEPHORAS.$invalid">
+		  					<span ng-show="form.DESCONCEPHORAS.$error.required">horas totales obligatorio</span>
+		  				</span>
+		      		</p>
+				        
 				    </div>
 			  	</div>
 	  	</div>
@@ -217,7 +244,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened5" />
+				       is-open="dateFieldOpened5" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -241,7 +269,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened6" />
+				       is-open="dateFieldOpened6" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -261,7 +290,18 @@
 				      <input id="desPropHoras"
 				      		 type="number" 
 				             ng-model="dataCronInvesIdes.desPropHoras"
-				             class="form-control" />      
+				             class="form-control"
+				             name="DESPROPHORAS" 
+				             required 
+				             min="0" />				             
+				             
+				      <!--validar horas totales-->
+		      		 <p>
+		      			<span style="color:red" ng-show="form.DESPROPHORAS.$dirty && form.DESPROPHORAS.$invalid">
+		  				<span ng-show="form.DESPROPHORAS.$error.required">horas totales obligatorio</span>
+		  				</span>
+		      	     </p>
+				            
 				    </div>
 			  	</div>
 	  	</div>
@@ -289,7 +329,8 @@
 				       cam-variable-type="Date"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened7" />
+				       is-open="dateFieldOpened7" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -313,7 +354,8 @@
 				       ng-model="dataCronInvesIdes.ajInterFechFin"
 				       class="form-control"
 				       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
-				       is-open="dateFieldOpened8" />
+				       is-open="dateFieldOpened8" 
+				       required />
 				
 				  <span class="input-group-btn">
 				    <button type="button"
@@ -333,7 +375,18 @@
 				      <input id="ajInterHoras"
 				      		 type="number" 
 				             ng-model="dataCronInvesIdes.ajInterHoras"
-				             class="form-control" />				       
+				             class="form-control"
+				             name="AJINTERHORAS" 
+				             required 
+				             min="0" />				             
+				             
+				      <!--validar horas totales-->
+		      		 <p>
+		      			<span style="color:red" ng-show="form.AJINTERHORAS.$dirty && form.AJINTERHORAS.$invalid">
+		  				<span ng-show="form.AJINTERHORAS.$error.required">horas totales obligatorio</span>
+		  				</span>
+		      	     </p>
+				             		       
 				    </div>
 			  	</div>
 	  	</div>

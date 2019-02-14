@@ -1,6 +1,6 @@
 <strong>Proceso desarrollo espacio</strong>
 
-<form class="form-horizontal">
+<form role="form" name="form" class="form-horizontal" >
   <div class="control-group">
     <label class="control-label">Valor costo/hora (USD)</label>
     <div class="controls">
@@ -8,7 +8,19 @@
              cam-variable-name="valorHora"
              cam-variable-type="String"
              required
-             class="form-control" />
+             class="form-control" 
+             ng-pattern="/^(?:[1-9]\d*|0)?(?:\.\d+)?$/"
+             name="VALORHORA" />             
+             
+                  
+             
+      		<!--validar horas totales-->
+		     <p>
+			     <span style="color:red" ng-show="form.VALORHORA.$dirty && form.VALORHORA.$invalid">
+			  	 <span ng-show="form.VALORHORA.$error.required">costo/hora es obligatorio</span>
+			  	 </span>
+		     </p>       
+           
     </div>
   </div>
 
